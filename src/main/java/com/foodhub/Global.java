@@ -88,6 +88,16 @@ public class Global {
             ).forEach(tableSql -> Utils.DatabaseHelper.ensureTableExists(DB.model(), tableSql));
         }
 
+        public static final Path relativeImagesDir;
+
+        static {
+            final var relativeImagesDirStr = Global.instance().appInstance.getParameters().getNamed().get("relative-images-dir");
+
+            if (relativeImagesDirStr != null)
+                relativeImagesDir = Path.of(relativeImagesDirStr).toAbsolutePath();
+            else relativeImagesDir = Path.of(DB.model().PATH).getParent().resolve("images").toAbsolutePath();
+        }
+
         public static final class FOODS {
 
             public static final Database.DatabaseModel.Table T = DB.model().new Table("foods");

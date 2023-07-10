@@ -1,7 +1,5 @@
 package com.foodhub.models;
 
-import java.net.URL;
-
 import com.foodhub.Global;
 import com.foodhub.utils.Graphical;
 import com.foodhub.views.FoodCard;
@@ -11,8 +9,13 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Node;
 import javafx.util.Duration;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.file.Path;
 import java.sql.Time;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Restaurant implements Graphical {
 
@@ -46,19 +49,45 @@ public class Restaurant implements Graphical {
         address = new Address(row.getString(Global.FoodHub.RESTAURANTS.ADDRESS));
         Global.FoodHub.FOODS.loadRestaurantFoods(this);
         rating = Global.FoodHub.VOTES.restaurantRating(id);
-        logo = Global.instance().url("databases/images/" + row.getString(Global.FoodHub.RESTAURANTS.LOGO_URL)); //TODO: extract database images path
-        image = Global.instance().url("databases/images/" + row.getString(Global.FoodHub.RESTAURANTS.IMAGE_URL));
+
+        final String rawLogoUrlStr = row.getString(Global.FoodHub.RESTAURANTS.LOGO_URL);
+        if (rawLogoUrlStr != null) {
+            final Path rawLogoUrlPath = Path.of(rawLogoUrlStr);
+            try {
+                if (rawLogoUrlPath.isAbsolute()) logo = rawLogoUrlPath.toUri().toURL();
+                else
+                    logo = Global.FoodHub.relativeImagesDir.resolve(rawLogoUrlPath).toUri().toURL();
+            } catch (Exception e) {
+                e.printStackTrace();
+                logo = null;
+            }
+        }
+
+        final String rawImageUrlStr = row.getString(Global.FoodHub.RESTAURANTS.IMAGE_URL);
+        if (rawImageUrlStr != null) {
+            try {
+                final Path rawImageUrlPath = Path.of(rawImageUrlStr);
+                if (rawImageUrlPath.isAbsolute()) image = rawImageUrlPath.toUri().toURL();
+                else
+                    image = Global.FoodHub.relativeImagesDir.resolve(rawImageUrlPath).toUri().toURL();
+            } catch (Exception e) {
+                e.printStackTrace();
+                image = null;
+            }
+        }
+
         deliveryTime = Duration.millis(row.getTime(Global.FoodHub.RESTAURANTS.DELIVERY_TIME).getTime());
         openHours = openHoursFactory(row.getString(Global.FoodHub.RESTAURANTS.OPEN_HOURS));
     }
 
     /**
      * extracts type of foodsList from the foodsList array
+     *
      * @return type of foodsList this restaurant serves separated by commas
      */
     public String getTypes() {
 
-        if(foods.isEmpty()) return null;
+        if (foods.isEmpty()) return null;
         return foods.stream().map(food -> food.type).distinct().map(", "::concat).reduce(String::concat).orElse("").substring(2);
 
     }
@@ -84,6 +113,7 @@ public class Restaurant implements Graphical {
     }
 
     private final List<Food> unmodifiableFoods = Collections.unmodifiableList(foods);
+
     public List<Food> getFoods() {
 
         return unmodifiableFoods;
@@ -156,7 +186,20 @@ public class Restaurant implements Graphical {
             name = row.getString(Global.FoodHub.FOODS.NAME);
             type = row.getString(Global.FoodHub.FOODS.TYPE);
             price = new Price((float) row.getDouble(Global.FoodHub.FOODS.PRICE));
-            image = Global.instance().url("databases/images/" + row.getString(Global.FoodHub.FOODS.IMAGE_URL));
+
+            final String rawImageUrlStr = row.getString(Global.FoodHub.FOODS.IMAGE_URL);
+            if (rawImageUrlStr != null) {
+                final Path rawImageUrlPath = Path.of(rawImageUrlStr);
+                try {
+                    if (rawImageUrlPath.isAbsolute()) image = rawImageUrlPath.toUri().toURL();
+                    else
+                        image = Global.FoodHub.relativeImagesDir.resolve(rawImageUrlPath).toUri().toURL();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                    image = null;
+                }
+            }
+
             rating = Global.FoodHub.VOTES.foodRating(getRestaurant().id, id);
             Restaurant.this.foods.add(this);
 
@@ -194,7 +237,7 @@ public class Restaurant implements Graphical {
 
         public IntegerProperty quantityProperty() {
 
-            if(quantity == null) quantity = new SimpleIntegerProperty(this, "quantity", 0);
+            if (quantity == null) quantity = new SimpleIntegerProperty(this, "quantity", 0);
 
             return quantity;
         }
