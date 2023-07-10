@@ -6,7 +6,7 @@ A [SnappFood](https://snappfood.ir/about) (or [UberEats](https://about.ubereats.
 
 This application was my final's project for the **advanced programming** university course, originally made in **2019**.
 
-> You can also check out [Foodo](./Foodo) in here; FoodHub's abandoned predecessor.
+> You can also check out **Foodo** in [here](./Foodo); FoodHub's abandoned predecessor.
 
 ## Simple build & run
 

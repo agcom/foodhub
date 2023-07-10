@@ -1,6 +1,6 @@
 # Foodo
 
-FoodHub's abandoned predecessor; with completely **different implemented feature set**; see screenshots below; originally made in 2019.
+FoodHub's abandoned predecessor; has some **different implemented features** compared to FoodHub; see screenshots below; originally made in 2019.
 
 ## Screenshots
 
