@@ -1,0 +1,17 @@
+#empty {
+
+    -fx-opacity: 0.6;
+
+}
+
+#foodsPane {
+
+    -fx-padding: 10;
+
+}
+
+#finalize {
+
+    -fx-background-radius: 999;
+
+}

@@ -1,0 +1,12 @@
+#root {
+
+    -fx-padding: 10;
+
+}
+
+#error {
+
+    -fx-text-fill: #d91e18;
+    -fx-font-weight: bold;
+
+}

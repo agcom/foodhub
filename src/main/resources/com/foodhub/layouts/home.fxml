@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.ScrollPane?>
+<?import com.foodhub.views.NodeSwitcher?>
+
+<?import com.foodhub.views.RestaurantCard?>
+<?import javafx.scene.control.Button?>
+<?import com.foodhub.views.LoadingWrapper?>
+<NodeSwitcher xmlns="http://javafx.com/javafx"
+              xmlns:fx="http://javafx.com/fxml"
+              fx:controller="com.foodhub.controllers.HomeController" startNodeIndex="0"
+              stylesheets="@/com/foodhub/styles/home.css" fx:id="homeSwitcher">
+
+    <nodes>
+
+        <ScrollPane fx:id="restaurantsScroll" fitToWidth="true" hbarPolicy="NEVER">
+
+            <VBox fx:id="restaurants" spacing="10" alignment="CENTER"/>
+
+        </ScrollPane>
+
+
+        <LoadingWrapper fx:id="restaurantPageLoading" min="0.8" max="0.9">
+
+            <content>
+
+                <ScrollPane fx:id="restaurantPageScroll" fitToWidth="true" hbarPolicy="NEVER">
+
+                    <VBox spacing="20" alignment="CENTER">
+
+                        <RestaurantCard fx:id="restaurantCard" prefWidth="Infinity"/>
+
+                        <TilePane fx:id="foods" alignment="CENTER" vgap="10" hgap="10"/>
+
+                    </VBox>
+
+                </ScrollPane>
+
+            </content>
+
+        </LoadingWrapper>
+
+    </nodes>
+
+</NodeSwitcher>

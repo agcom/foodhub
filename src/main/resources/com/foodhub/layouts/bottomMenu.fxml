@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?language JavaScript?>
+
+<?import com.foodhub.views.BottomMenu?>
+<?import com.foodhub.views.BottomMenuItem?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" spacing="15"
+      stylesheets="@/com/foodhub/styles/bottomMenu.css" fx:id="root" fx:controller="com.foodhub.controllers.BottomMenuController">
+
+    <fx:define>
+
+        <BottomMenu fx:id="menu"/>
+
+        <ImageView fx:id="cartIcon" preserveRatio="true" smooth="true" fitHeight="25" fitWidth="25"/>
+        <ImageView fx:id="homeIcon" preserveRatio="true" smooth="true" fitHeight="25" fitWidth="25"/>
+        <ImageView fx:id="searchIcon" preserveRatio="true" smooth="true" fitHeight="25" fitWidth="25"/>
+        <ImageView fx:id="profileIcon" preserveRatio="true" smooth="true" fitHeight="25" fitWidth="25"/>
+
+        <Image fx:id="cartRaw" url="/com/foodhub/images/icons/cartRaw.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
+        <Image fx:id="cartBold" url="/com/foodhub/images/icons/cartBold.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
+        <Image fx:id="homeRaw" url="/com/foodhub/images/icons/homeRaw.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
+        <Image fx:id="homeBold" url="/com/foodhub/images/icons/homeBold.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
+        <Image fx:id="searchRaw" url="/com/foodhub/images/icons/searchRaw.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
+        <Image fx:id="searchBold" url="/com/foodhub/images/icons/searchBold.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
+        <Image fx:id="profileRaw" url="/com/foodhub/images/icons/profileRaw.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
+        <Image fx:id="profileBold" url="/com/foodhub/images/icons/profileBold.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
+
+    </fx:define>
+
+    <BorderPane fx:id="back" HBox.hgrow="ALWAYS">
+
+        <center>
+
+            <ImageView fx:id="backIcon">
+
+                <Image url="/com/foodhub/images/icons/arrowLeft.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
+
+            </ImageView>
+
+        </center>
+
+    </BorderPane>
+    <BottomMenuItem fx:id="cart" rawNode="$cartIcon" boldNode="$cartIcon" group="$menu" HBox.hgrow="ALWAYS"/>
+    <BottomMenuItem fx:id="home" rawNode="$homeIcon" boldNode="$homeIcon" group="$menu" HBox.hgrow="ALWAYS"/>
+    <BottomMenuItem fx:id="search" rawNode="$searchIcon" boldNode="$searchIcon" group="$menu" HBox.hgrow="ALWAYS"/>
+    <BottomMenuItem fx:id="user" rawNode="$profileIcon" boldNode="$profileIcon" group="$menu"
+                    HBox.hgrow="ALWAYS"/>
+
+    <fx:script>
+
+        //TODO: how to import??????????
+
+        cartIcon.imageProperty().bind(javafx.beans.binding.Bindings.when(cart.selectedProperty()).then(cartBold).otherwise(cartRaw))
+        homeIcon.imageProperty().bind(javafx.beans.binding.Bindings.when(home.selectedProperty()).then(homeBold).otherwise(homeRaw))
+        searchIcon.imageProperty().bind(javafx.beans.binding.Bindings.when(search.selectedProperty()).then(searchBold).otherwise(searchRaw))
+        profileIcon.imageProperty().bind(javafx.beans.binding.Bindings.when(user.selectedProperty()).then(profileBold).otherwise(profileRaw))
+
+         </fx:script>
+
+</HBox>

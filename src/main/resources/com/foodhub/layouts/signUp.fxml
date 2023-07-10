@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?language JavaScript?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.foodhub.views.LabeledSeparator?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.util.converter.NumberStringConverter?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.util.converter.LongStringConverter?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import com.foodhub.views.LoadingWrapper?>
+<?import com.foodhub.views.FakeFocus?>
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.foodhub.controllers.SignUpController"
+            prefHeight="600" prefWidth="400" fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER"
+            stylesheets="@/com/foodhub/styles/signUp.css">
+
+    <BorderPane>
+
+        <top>
+
+            <FakeFocus fx:id="fakeFocus"/>
+
+        </top>
+
+        <center>
+
+            <VBox spacing="30" prefWidth="350" maxWidth="350" alignment="CENTER" fx:id="root">
+
+                <LabeledSeparator text="Complete your profile"/>
+
+                <HBox spacing="5">
+
+                    <JFXTextField fx:id="firstName" promptText="First name" HBox.hgrow="ALWAYS" onAction="#done"/>
+
+                    <JFXTextField fx:id="lastName" promptText="Last name" HBox.hgrow="ALWAYS" onAction="#done"/>
+
+                </HBox>
+
+                <JFXTextField fx:id="email" promptText="Your email address" onAction="#done"/>
+
+                <JFXTextField fx:id="phone" promptText="Phone no." onAction="#done"/>
+
+                <JFXPasswordField fx:id="password" promptText="Password" onAction="#done"/>
+
+                <LoadingWrapper fx:id="signUpLoading" min="0.4" max="0.9">
+
+                    <content>
+
+                        <JFXButton fx:id="done" prefWidth="Infinity" contentDisplay="CENTER" onAction="#done">
+
+                            <graphic>
+
+                                <ImageView fx:id="checkIcon">
+
+                                    <Image url="/com/foodhub/images/icons/check.png" requestedWidth="25"
+                                           requestedHeight="25" smooth="true" preserveRatio="true"/>
+
+                                    <fx:script>
+
+                                        checkIcon.setEffect(new javafx.scene.effect.ColorAdjust(0, -1, -1, 0))
+
+                                         </fx:script>
+
+                                </ImageView>
+
+                            </graphic>
+
+                        </JFXButton>
+
+                    </content>
+
+                </LoadingWrapper>
+
+                <Label fx:id="error" managed="false" visible="false" graphicTextGap="5" contentDisplay="RIGHT">
+
+                    <graphic>
+
+                        <ImageView>
+
+                            <Image url="/com/foodhub/images/icons/warning.png" requestedHeight="15" requestedWidth="15"
+                                   smooth="true" preserveRatio="true"/>
+
+                        </ImageView>
+
+                    </graphic>
+
+                </Label>
+
+            </VBox>
+
+        </center>
+
+    </BorderPane>
+
+</ScrollPane>

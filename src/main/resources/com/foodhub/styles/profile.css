@@ -1,0 +1,38 @@
+#photo {
+
+    -fx-background-image: url('/com/foodhub/images/profile.png');
+    -fx-background-size: cover;
+    -fx-background-position: center;
+
+}
+
+#userName {
+
+    -fx-font-weight: bold;
+
+}
+
+#logOut {
+
+    -fx-background-color: transparent;
+    -fx-border-color: #BDBDBD;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-weight: bold;
+    -fx-font-size: 12;
+    -jfx-button-type: FLAT;
+
+}
+
+#root {
+
+    -fx-padding: 10;
+
+}
+
+#orders {
+
+    -fx-background-color: linear-gradient(to top, #BDBDBD11, transparent);
+    -fx-background-radius: 8;
+
+}

@@ -1,0 +1,18 @@
+#restaurants {
+
+    -fx-padding: 15;
+
+}
+
+#restaurantCard {
+
+    -fx-background-radius: 0;
+
+}
+
+#restaurantCard:hover {
+
+    -fx-effect: none;
+    -fx-cursor: default;
+
+}

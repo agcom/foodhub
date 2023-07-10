@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import com.foodhub.views.LabeledSeparator?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Text?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.foodhub.views.LoadingWrapper?>
+<?import com.foodhub.views.FakeFocus?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      prefWidth="350" stylesheets="@/com/foodhub/styles/login.css" spacing="35" alignment="CENTER" maxWidth="350"
+      fx:controller="com.foodhub.controllers.LoginController">
+
+    <FakeFocus fx:id="fakeFocus"/>
+
+    <HBox spacing="35" alignment="CENTER">
+
+        <JFXButton fx:id="google" onAction="#google" focusTraversable="false">
+
+            <graphic>
+
+                <ImageView>
+
+                    <Image url="/com/foodhub/images/icons/google.png" requestedWidth="50" requestedHeight="50"
+                           preserveRatio="true" smooth="true"/>
+
+                </ImageView>
+
+            </graphic>
+
+        </JFXButton>
+
+        <JFXButton fx:id="facebook" onAction="#facebook" focusTraversable="false">
+
+            <graphic>
+
+                <ImageView>
+
+                    <Image url="/com/foodhub/images/icons/facebook.png" requestedHeight="50" requestedWidth="50"
+                           preserveRatio="true" smooth="true"/>
+
+                </ImageView>
+
+            </graphic>
+
+        </JFXButton>
+
+    </HBox>
+
+    <LabeledSeparator text="Or use your email address"/>
+
+    <JFXTextField fx:id="emailField" promptText="Your email address" onAction="#login"/>
+    <JFXPasswordField fx:id="passwordField" promptText="Password" onAction="#login"/>
+
+    <LoadingWrapper fx:id="loginLoading" min="0.4" max="0.9">
+
+        <content>
+
+            <JFXButton text="Login" fx:id="loginButton" prefWidth="Infinity" prefHeight="35" onAction="#login"/>
+
+        </content>
+
+    </LoadingWrapper>
+
+    <Label fx:id="error" managed="false" visible="false" contentDisplay="RIGHT" graphicTextGap="5">
+
+        <graphic>
+
+            <ImageView>
+
+                <Image url="/com/foodhub/images/icons/warning.png" requestedHeight="15" requestedWidth="15"
+                       smooth="true" preserveRatio="true"/>
+
+            </ImageView>
+
+        </graphic>
+
+    </Label>
+
+    <TextFlow fx:id="signUpContainer">
+
+        <Text text="Don't have an account? "/>
+        <Hyperlink text="Sign Up" fx:id="signUp" onAction="#signUp"/>
+
+    </TextFlow>
+
+
+</VBox>

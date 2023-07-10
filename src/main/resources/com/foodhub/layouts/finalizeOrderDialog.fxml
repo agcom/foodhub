@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?language JavaScript?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import com.foodhub.views.LabeledSeparator?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.foodhub.controllers.FinalizeOrderDialogController"
+            prefHeight="300" prefWidth="300" stylesheets="@/com/foodhub/styles/finalizeOrderDialog.css">
+
+    <top>
+
+        <LabeledSeparator fx:id="title" text="Finalize your order" prefWidth="Infinity"/>
+
+    </top>
+
+    <center>
+
+        <VBox fx:id="centerRoot" alignment="CENTER" spacing="35" maxWidth="250" prefWidth="250">
+
+            <padding>
+
+                <Insets topRightBottomLeft="10"/>
+
+            </padding>
+
+            <JFXTextField fx:id="address" promptText="Delivery address" onAction="#done" prefWidth="Infinity"/>
+
+        </VBox>
+
+    </center>
+
+    <bottom>
+
+        <JFXButton fx:id="done" contentDisplay="CENTER" onAction="#done" prefWidth="Infinity" prefHeight="45">
+
+            <graphic>
+
+                <ImageView fx:id="checkIcon">
+
+                    <Image url="/com/foodhub/images/icons/check.png" requestedWidth="25" requestedHeight="25"
+                           smooth="true" preserveRatio="true"/>
+
+                    <fx:script>
+
+                        checkIcon.setEffect(new javafx.scene.effect.ColorAdjust(0, -1, -1, 0))
+
+                    </fx:script>
+
+                </ImageView>
+
+            </graphic>
+
+        </JFXButton>
+
+    </bottom>
+
+</BorderPane>

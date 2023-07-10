@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import com.foodhub.views.RatingView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Group?>
+<fx:root type="VBox" xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml" alignment="CENTER">
+
+    <stylesheets>
+
+        <URL value="@/com/foodhub/styles/restaurantCard.css"/>
+        <URL value="@/com/foodhub/styles/global.css"/>
+
+    </stylesheets>
+
+    <HBox spacing="35">
+
+        <Pane fx:id="image" minWidth="254" maxWidth="254" minHeight="165" maxHeight="165"/>
+
+        <VBox alignment="CENTER_LEFT" spacing="14">
+
+            <Label fx:id="name"/>
+
+            <Label fx:id="address"/>
+
+            <Label fx:id="types"/>
+
+            <HBox spacing="25" alignment="CENTER_LEFT">
+
+                <VBox alignment="CENTER_LEFT" spacing="4">
+
+                    <RatingView fx:id="rating">
+
+                        <icon>
+
+                            <Image url="/com/foodhub/images/icons/star.png" requestedHeight="14" requestedWidth="14"
+                                   smooth="true" preserveRatio="true"/>
+
+                        </icon>
+
+                    </RatingView>
+
+                    <Label fx:id="votes"/>
+
+                </VBox>
+
+                <Separator orientation="VERTICAL"/>
+
+                <VBox alignment="CENTER_LEFT" spacing="4">
+
+                    <Label fx:id="deliveryTime"/>
+
+                    <Label fx:id="deliveryTimeLabel" text="Delivery Time"/>
+
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+
+    </HBox>
+
+</fx:root>

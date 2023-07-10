@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.foodhub.views.NodeSwitcher?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<NodeSwitcher xmlns="http://javafx.com/javafx"
+              xmlns:fx="http://javafx.com/fxml"
+              prefHeight="600" prefWidth="400" stylesheets="@/com/foodhub/styles/cart.css" fx:id="switcher"
+              startNodeIndex="0">
+
+    <nodes>
+
+        <ImageView fx:id="empty">
+
+            <Image url="/com/foodhub/images/icons/shopingBag.png" requestedHeight="105" requestedWidth="105" smooth="true" preserveRatio="true"/>
+
+        </ImageView>
+
+        <StackPane fx:id="dialogSupport">
+
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
+
+                <TilePane fx:id="foodsPane" vgap="10" hgap="10" alignment="TOP_CENTER">
+
+                    <JFXButton fx:id="finalize" prefHeight="200" prefWidth="200" onAction="#finalizeOrder">
+
+                        <graphic>
+
+                            <ImageView>
+
+                                <Image url="/com/foodhub/images/icons/rightArrow.png" requestedHeight="100"
+                                       requestedWidth="100" smooth="true" preserveRatio="true"/>
+
+                            </ImageView>
+
+                        </graphic>
+
+                    </JFXButton>
+
+                </TilePane>
+
+            </ScrollPane>
+
+        </StackPane>
+
+    </nodes>
+
+</NodeSwitcher>

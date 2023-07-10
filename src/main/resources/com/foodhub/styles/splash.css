@@ -1,0 +1,23 @@
+.root {
+
+    /*TODO: 16:9 background image*/
+    -fx-background-image: url("/com/foodhub/images/backgrounds/burger_on_blue_plate.jpg");
+    -fx-background-size: cover;
+
+}
+
+#app_name {
+
+    -fx-text-fill: white;
+    -fx-font-size: 32;
+    -fx-font-family: "Arial Black";
+    -fx-font-smoothing-type: antialiased;
+
+}
+
+#loadingBar .bar {
+
+    -fx-background-insets: 0;
+    -fx-padding: 1;
+
+}

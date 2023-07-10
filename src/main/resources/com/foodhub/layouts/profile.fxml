@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?language JavaScript?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.foodhub.views.NodeSwitcher?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.foodhub.views.LabeledSeparator?>
+<?import javafx.scene.shape.Circle?>
+<NodeSwitcher xmlns="http://javafx.com/javafx"
+              xmlns:fx="http://javafx.com/fxml"
+              prefHeight="600" prefWidth="400" startNodeIndex="0" fx:id="switcher"
+              stylesheets="@/com/foodhub/styles/profile.css">
+
+    <nodes>
+
+        <fx:include fx:id="login" source="login.fxml"/>
+
+        <fx:include fx:id="signUp" source="signUp.fxml"/>
+
+        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER">
+
+            <BorderPane>
+
+                <center>
+
+                    <VBox fx:id="root" spacing="30" alignment="CENTER" maxWidth="350" prefWidth="350">
+
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+
+                            <Pane fx:id="photo" minWidth="80" maxWidth="80" minHeight="80" maxHeight="80">
+
+                                <clip>
+
+                                    <Circle fx:id="photoClip"/>
+
+                                    <fx:script>
+
+                                        photoClip.radiusProperty().bind(photo.maxWidthProperty().divide(2))
+                                        photoClip.centerXProperty().bind(photoClip.radiusProperty())
+                                        photoClip.centerYProperty().bind(photoClip.radiusProperty())
+
+                                         </fx:script>
+
+                                </clip>
+
+                            </Pane>
+
+                            <VBox HBox.hgrow="ALWAYS" alignment="CENTER_LEFT" spacing="10">
+
+                                <Label fx:id="fullName" VBox.vgrow="ALWAYS" alignment="CENTER_LEFT"/>
+                                <Label fx:id="email" VBox.vgrow="ALWAYS" alignment="CENTER_LEFT"/>
+                                <Label fx:id="phone" VBox.vgrow="ALWAYS" alignment="CENTER_LEFT"/>
+
+                            </VBox>
+
+                        </HBox>
+
+                        <JFXButton fx:id="logOut" text="Log out" prefWidth="Infinity" onAction="#logOut"
+                                   focusTraversable="false"/>
+
+                        <LabeledSeparator fx:id="ordersSeparator" text="Orders"/>
+
+                        <TreeView fx:id="orders" showRoot="false" minHeight="0.1" prefHeight="200">
+
+                            <TreeItem fx:id="ordersRoot" expanded="true"/>
+
+                        </TreeView>
+
+                    </VBox>
+
+                </center>
+
+            </BorderPane>
+
+        </ScrollPane>
+
+    </nodes>
+
+</NodeSwitcher>

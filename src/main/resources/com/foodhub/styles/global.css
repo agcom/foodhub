@@ -1,0 +1,125 @@
+.root {
+
+    -fx-accent: #FFEB3B;
+
+}
+
+.label {
+
+    -fx-text-fill: #212121;
+    -fx-font-family: Verdana, Arial, sans-serif;
+    -fx-font-smoothing-type: lcd;
+
+}
+
+.scroll-pane {
+
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+
+}
+
+.scroll-bar {
+
+    -fx-background-color: transparent;
+
+}
+
+.scroll-bar:horizontal .track, .scroll-bar:vertical .track {
+
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.scroll-bar:vertical .increment-arrow, .scroll-bar:vertical .decrement-arrow, .scroll-bar:horizontal .increment-arrow, .scroll-bar:horizontal .decrement-arrow{
+    -fx-shape: "";
+    -fx-opacity: 0;
+    -fx-background-color: transparent;
+    -fx-padding: -5 0 -5 0;
+}
+
+.scroll-bar:horizontal .thumb, .scroll-bar:vertical .thumb {
+    -fx-background-color: -fx-accent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar:horizontal .thumb:hover, .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #F44336;
+}
+
+.separator .line {
+
+    -fx-border-style: solid;
+    -fx-border-color: #BDBDBD;
+    -fx-border-width: 0.2;
+
+}
+
+.list-view {
+
+    -fx-background-color: transparent;
+
+}
+
+.list-cell {
+
+    -fx-background-color: transparent;
+
+}
+
+.jfx-button {
+
+    -fx-background-color: -fx-accent;
+    -fx-background-radius: 0;
+    -jfx-button-type: RAISED;
+
+}
+
+.jfx-text-field, .jfx-password-field {
+
+    -jfx-focus-color: #F44336;
+    -jfx-unFocus-color: #BDBDBD;
+
+}
+
+.text-field {
+
+    -fx-prompt-text-fill: #757575;
+    -fx-font-size: 14;
+
+}
+
+.error-label {
+
+    -fx-text-fill: #d91e18;
+    -fx-font-size: 12;
+    -fx-font-weight: 600;
+
+}
+
+.labeled-separator .label {
+
+    -fx-text-fill: #757575;
+
+}
+
+.jfx-rippler {
+
+    -jfx-rippler-fill: black;
+
+}
+
+.tree-view {
+
+    -fx-background-color: transparent;
+
+}
+
+.tree-cell {
+
+    -fx-background-color: transparent;
+
+}

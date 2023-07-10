@@ -1,0 +1,13 @@
+#root {
+
+    -fx-padding: 10;
+    -fx-border-color: #BDBDBD;
+    -fx-border-width: 0.2 0 0 0;
+
+}
+
+.bottom-menu-item:hover, #back:hover {
+
+    -fx-opacity: 0.5;
+
+}

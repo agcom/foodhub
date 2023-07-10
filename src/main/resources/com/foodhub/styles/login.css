@@ -1,0 +1,48 @@
+#google {
+
+    -fx-background-color: whitesmoke;
+    -fx-background-radius: 999;
+    -fx-padding: 10;
+
+}
+
+#google .jfx-rippler {
+
+    -jfx-rippler-fill: cyan;
+
+}
+
+#facebook {
+
+    -fx-background-color: #4267b1;
+    -fx-background-radius: 999;
+    -fx-padding: 10;
+
+}
+
+#facebook .jfx-rippler {
+
+    -jfx-rippler-fill: white;
+
+}
+
+#loginButton {
+
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+
+}
+
+#signUpContainer {
+
+    -fx-font-size: 13;
+    -fx-font-weight: 600;
+
+}
+
+#error {
+
+    -fx-text-fill: #d91e18;
+    -fx-font-weight: bold;
+
+}

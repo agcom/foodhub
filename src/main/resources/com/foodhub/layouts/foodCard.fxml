@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import java.net.URL?>
+<?import com.foodhub.views.RatingView?>
+<?import javafx.scene.image.Image?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import com.foodhub.views.RatingView?>
+<?import javafx.scene.image.Image?>
+<?import com.jfoenix.controls.JFXButton?>
+
+<?import com.foodhub.views.NodeSwitcher?>
+<?import javafx.scene.image.ImageView?>
+<?import com.sun.javafx.scene.control.FakeFocusTextField?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.text.Text?>
+<?import com.jfoenix.controls.FakeFocusJFXTextField?>
+<?import com.foodhub.views.FakeFocus?>
+<fx:root type="VBox" xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml" alignment="CENTER_LEFT" prefWidth="300" maxWidth="300" spacing="10">
+
+    <stylesheets>
+
+        <URL value="@/com/foodhub/styles/global.css"/>
+        <URL value="@/com/foodhub/styles/foodCard.css"/>
+
+    </stylesheets>
+
+    <FakeFocus fx:id="fakeFocus"/>
+
+    <Pane fx:id="image" minWidth="265" maxWidth="265" minHeight="210" maxHeight="210"/>
+
+    <HBox alignment="CENTER_LEFT" spacing="5">
+
+        <Label fx:id="name"/>
+
+        <Pane HBox.hgrow="ALWAYS"/>
+
+        <Label fx:id="price" minWidth="-Infinity"/>
+
+    </HBox>
+
+    <HBox spacing="5" alignment="CENTER_LEFT">
+
+        <Label fx:id="type"/>
+
+        <Pane HBox.hgrow="ALWAYS"/>
+
+        <RatingView fx:id="rating" contentDisplay="RIGHT">
+
+            <icon>
+
+                <Image url="/com/foodhub/images/icons/starBlack.png" requestedHeight="14" requestedWidth="14"
+                       smooth="true" preserveRatio="true"/>
+
+            </icon>
+
+        </RatingView>
+
+    </HBox>
+
+    <NodeSwitcher startNodeIndex="0" fx:id="addToCartSwitcher">
+
+        <nodes>
+
+            <JFXButton fx:id="add" alignment="CENTER" text="Add to cart" prefWidth="Infinity" onAction="#increaseQuantity"/>
+
+            <HBox spacing="20" alignment="CENTER_LEFT" fx:id="quantityContainer">
+
+                <JFXButton fx:id="decrease" onAction="#decreaseQuantity">
+
+                    <graphic>
+
+                        <ImageView>
+
+                            <Image url="/com/foodhub/images/icons/minusBlack.png" requestedWidth="22" requestedHeight="22"
+                                   smooth="true" preserveRatio="true"/>
+
+                        </ImageView>
+
+                    </graphic>
+
+                </JFXButton>
+
+                <Label fx:id="quantityLabel" text="1"/>
+
+                <JFXButton fx:id="increase" onAction="#increaseQuantity">
+
+                    <graphic>
+
+                        <ImageView>
+
+                            <Image url="/com/foodhub/images/icons/plusBlack.png" requestedWidth="22" requestedHeight="22"
+                                   smooth="true" preserveRatio="true"/>
+
+                        </ImageView>
+
+                    </graphic>
+
+                </JFXButton>
+
+                <Pane HBox.hgrow="ALWAYS"/>
+
+                <TextFlow fx:id="totalFlow">
+
+                    <Text text="Total = "/>
+
+                    <Text fx:id="total"/>
+
+                </TextFlow>
+
+            </HBox>
+
+        </nodes>
+
+    </NodeSwitcher>
+
+</fx:root>
