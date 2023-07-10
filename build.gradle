@@ -1,21 +1,43 @@
 plugins {
+    id 'java'
     id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.14'
 }
 
-mainClassName = "com.foodhub.Main"
+application {
+    mainClass = "com.foodhub.Main"
+}
 
 group = 'com.foodhub'
-version '1.0-SNAPSHOT'
+version = '1.0-SNAPSHOT'
 
-sourceCompatibility = 10
+sourceCompatibility = 17
+targetCompatibility = 17
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile 'com.jfoenix:jfoenix:9.0.8'
-    implementation 'org.xerial:sqlite-jdbc:3.27.2.1'
-    implementation 'org.json:json:20180813'
-    implementation 'commons-validator:commons-validator:1.6'
+    implementation 'com.jfoenix:jfoenix:9.0.10'
+    implementation 'org.openjdk.nashorn:nashorn-core:15.4'
+    implementation 'org.xerial:sqlite-jdbc:3.42.0.0'
+    implementation 'org.json:json:20230618'
+    implementation 'commons-validator:commons-validator:1.7'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+tasks.withType(JavaExec).configureEach {
+    systemProperty('javafx.allowjs', 'true')
+    jvmArgs += ['--add-opens', 'java.base/java.lang.reflect=ALL-UNNAMED']
+}
+
+javafx {
+    version = '17.0.7'
+    modules = ['javafx.controls', 'javafx.fxml']
 }
