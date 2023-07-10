@@ -1,0 +1,19 @@
+#container {
+
+    -fx-background-color: #FFFFFFDD;
+    -fx-background-insets: 25;
+    -fx-background-radius: 5;
+
+}
+
+.label, .jfx-text-field, .jfx-password-field {
+
+    -fx-font-size: 14;
+
+}
+
+.jfx-text-field:disabled, .jfx-password-field:disabled {
+
+    -fx-opacity: 0.8;
+
+}

@@ -1,0 +1,101 @@
+#orPhrase {
+
+    -fx-text-fill: #212121;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+
+}
+
+#facebookButton, #googleButton {
+
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+    -fx-background-radius: 0;
+
+
+}
+
+#googleButton {
+
+    -fx-background-color: #cb202d;
+
+}
+
+#facebookButton {
+
+    -fx-background-color: #3b5998;
+
+}
+
+#orEmailPhrase {
+
+    -fx-font-size: 14;
+    -fx-text-fill: #757575;
+
+}
+
+#emailField, #passwordField {
+
+    -fx-text-fill: #212121;
+    -jfx-label-float: false;
+    -fx-font-family: Helvetica;
+    -fx-font-size: 16;
+
+}
+
+#passwordField {
+
+    -jfx-focus-color: #FF5722;
+
+}
+
+#emailFieldBackground {
+
+    -fx-background-color: white;
+    -fx-background-insets: -7;
+    -fx-border-color: #757575;;
+    -fx-border-insets: -8;
+    -fx-border-width: 1;
+
+}
+
+#emailFieldBackground.focusedEmail {
+
+    -fx-border-color: #FF9800;
+
+}
+
+#emailFieldBackground.focusedPassword {
+
+    -fx-border-color: #E64A19;
+
+}
+
+#emailValidatorLabel {
+
+    -fx-alignment: center;
+    -fx-font-size: 14;
+    -fx-text-fill: #d91e18;
+
+}
+
+#loginButton, #newUserButton {
+
+    -fx-background-radius: 0;
+    -jfx-button-type: FLAT;
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+
+}
+
+#loginButton {
+
+    -fx-background-color: #E64A19;
+
+}
+
+#newUserButton {
+
+    -fx-background-color: #FFCCBC;
+
+}

@@ -1,0 +1,86 @@
+#beautifulPhrase {
+
+    -fx-font-size: 28;
+    -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, #00000055, 2, 0.5, 2, 3);
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-font-smoothing-type: antialiased;
+    -fx-text-alignment: center;
+
+}
+
+#addressField {
+
+    -jfx-focus-color: #FF9800;
+    -fx-text-fill: #212121;
+    -jfx-label-float: false;
+    -fx-font-family: Helvetica;
+    -fx-font-size: 16;
+
+}
+
+#addressFieldBackground {
+
+    -fx-background-color: white;
+    -fx-background-insets: -7;
+    -fx-border-color: #757575;;
+    -fx-border-insets: -8;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, #00000055, 2, 0.5, 2, 3);
+
+}
+
+#addressFieldBackground.focused {
+
+    -fx-border-color: #FF9800;
+
+}
+
+#addressList .list-cell {
+
+    -fx-text-fill: #212121;
+
+}
+
+#addressList .list-cell:focused {
+
+    -fx-background-color: transparent;
+    -fx-text-fill: #212121;
+
+}
+
+#loginButton {
+
+    -jfx-button-type: RAISED;
+    -fx-background-color: #E64A19;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0 -10 0 -10;
+    -fx-font-size: 14;
+
+}
+
+#loginPhrase {
+
+    -fx-effect: dropshadow(gaussian, #00000055, 2, 0.5, 2, 3);
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+
+}
+
+#aboutUsLabel {
+
+    -fx-font-size: 24;
+    -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, #00000055, 2, 0.5, 2, 3);
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-font-smoothing-type: antialiased;
+    -fx-text-alignment: center;
+
+}

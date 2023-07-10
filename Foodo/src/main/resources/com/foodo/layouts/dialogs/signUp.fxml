@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import java.net.URL?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.foodo.mvc.SignUpController"
+            prefHeight="500" prefWidth="400">
+
+    <stylesheets>
+
+        <URL value="@/com/foodo/styles/signUp.css"/>
+
+    </stylesheets>
+
+    <center>
+
+        <VBox spacing="45" alignment="CENTER" maxWidth="330">
+
+            <JFXTextField fx:id="firstNameField" promptText="First name" labelFloat="true"/>
+            <JFXTextField fx:id="lastNameField" promptText="Last name" labelFloat="true"/>
+            <JFXTextField fx:id="emailField" promptText="Email address" labelFloat="true"/>
+            <JFXTextField fx:id="phoneField" promptText="Phone number" labelFloat="true"/>
+            <JFXPasswordField fx:id="passwordField" promptText="Password" labelFloat="true" onAction="#doneButtonAction"/>
+
+        </VBox>
+
+    </center>
+
+    <bottom>
+
+        <VBox alignment="CENTER" spacing="10">
+
+            <Label fx:id="errorLabel" text="errorLabel" prefWidth="400" visible="false" managed="true"
+                   graphicTextGap="5" contentDisplay="RIGHT">
+
+                <padding>
+
+                    <Insets topRightBottomLeft="5"/>
+
+                </padding>
+
+                <graphic>
+
+                    <ImageView>
+
+                        <Image url="/com/foodo/images/icons/warning_red.png" smooth="true" preserveRatio="true"
+                               requestedWidth="15" requestedHeight="15"/>
+
+                    </ImageView>
+
+                </graphic>
+
+            </Label>
+
+            <HBox>
+
+                <JFXButton fx:id="backButton" prefWidth="120" contentDisplay="LEFT" graphicTextGap="5"
+                           ripplerFill="white" onAction="#backButtonAction">
+
+                    <graphic>
+
+
+                        <ImageView fx:id="backButtonGraphic" rotate="180">
+
+                            <Image url="/com/foodo/images/icons/right_arrow.png" requestedHeight="40"
+                                   requestedWidth="40"
+                                   smooth="true" preserveRatio="true"/>
+
+                        </ImageView>
+
+                    </graphic>
+
+                </JFXButton>
+
+                <JFXButton fx:id="doneButton" text="Done" prefWidth="280" onAction="#doneButtonAction"/>
+
+            </HBox>
+
+        </VBox>
+
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXScrollPane?>
+<?import java.net.URL?>
+<?import javafx.scene.image.ImageView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.geometry.Insets?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.foodo.mvc.ProfileController" fx:id="root">
+
+    <stylesheets>
+
+        <URL value="@/com/foodo/styles/defaultBackground.css"/>
+        <URL value="@/com/foodo/styles/profile.css"/>
+        <URL value="@/com/foodo/styles/global.css"/>
+
+    </stylesheets>
+
+    <VBox fx:id="container" spacing="30" alignment="CENTER" prefHeight="810" prefWidth="540">
+
+        <padding>
+
+            <Insets topRightBottomLeft="45"/>
+
+        </padding>
+
+        <HBox spacing="15" alignment="CENTER_LEFT">
+
+            <ImageView fx:id="profileImage" fitWidth="100" fitHeight="100">
+
+                <Image url="/com/foodo/images/icons/profile.png" smooth="true"
+                       preserveRatio="true"/>
+
+            </ImageView>
+
+            <VBox spacing="10" alignment="CENTER_LEFT">
+
+                <Label text="Null" fx:id="fullNameLabel"/>
+
+                <Label text="Null" fx:id="emailLabel"/>
+
+                <Label text="Null" fx:id="phoneLabel"/>
+
+            </VBox>
+
+        </HBox>
+
+        <Separator/>
+
+        <fx:define>
+
+            <Image fx:id="editIconImage" url="/com/foodo/images/icons/edit.png" requestedWidth="15" requestedHeight="15"
+                   smooth="true" preserveRatio="true"/>
+
+        </fx:define>
+
+        <HBox spacing="10" alignment="CENTER">
+
+            <JFXTextField text="Null" fx:id="firstNameField" promptText="First name" labelFloat="true"
+                          disable="true" HBox.hgrow="ALWAYS"/>
+
+            <ImageView fx:id="editIcon" image="$editIconImage" onMouseClicked="#editFieldAction"/>
+
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER">
+
+            <JFXTextField text="Null" fx:id="lastNameField" promptText="Last name" labelFloat="true" disable="true"
+                          HBox.hgrow="ALWAYS"/>
+            <ImageView fx:id="editIcon" image="$editIconImage" onMouseClicked="#editFieldAction"/>
+
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER">
+
+            <JFXTextField text="Null" fx:id="emailField" promptText="Email address" labelFloat="true" disable="true"
+                          HBox.hgrow="ALWAYS"/>
+            <ImageView fx:id="editIcon" image="$editIconImage" onMouseClicked="#editFieldAction"/>
+
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER">
+
+            <JFXTextField text="Null" fx:id="phoneField" promptText="Phone number" labelFloat="true" disable="true"
+                          HBox.hgrow="ALWAYS"/>
+            <ImageView fx:id="editIcon" image="$editIconImage" onMouseClicked="#editFieldAction"/>
+
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER">
+
+            <JFXPasswordField text="Null" fx:id="passwordField" promptText="Password" labelFloat="true" disable="true"
+                              HBox.hgrow="ALWAYS"/>
+            <ImageView fx:id="editIcon" image="$editIconImage" onMouseClicked="#editFieldAction"/>
+
+        </HBox>
+
+        <HBox spacing="5" alignment="CENTER">
+
+            <Separator HBox.hgrow="ALWAYS"/>
+
+            <Label fx:id="addressesSepLabel" text="My addresses"/>
+
+            <Separator HBox.hgrow="ALWAYS"/>
+
+        </HBox>
+
+        <VBox fx:id="addresses" spacing="5"/>
+
+    </VBox>
+
+</Pane>
+

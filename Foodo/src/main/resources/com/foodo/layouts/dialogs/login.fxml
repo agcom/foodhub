@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?language JavaScript?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import java.net.URL?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.foodo.mvc.LoginController"
+      prefHeight="400" prefWidth="400" spacing="20" alignment="CENTER"
+      fx:id="root">
+
+    <stylesheets>
+
+        <URL value="@/com/foodo/styles/login.css"/>
+
+    </stylesheets>
+
+    <JFXButton fx:id="googleButton" text="Continue with Google" prefWidth="330" prefHeight="60" graphicTextGap="25"
+               contentDisplay="LEFT">
+
+        <graphic>
+
+            <ImageView>
+
+                <Image url="/com/foodo/images/icons/google.png" requestedHeight="40" requestedWidth="40"
+                       preserveRatio="true" smooth="true"/>
+
+            </ImageView>
+
+        </graphic>
+
+    </JFXButton>
+
+    <JFXButton fx:id="facebookButton" text="Continue with Facebook" prefWidth="330" prefHeight="60" graphicTextGap="25"
+               contentDisplay="LEFT">
+
+        <graphic>
+
+            <ImageView>
+
+                <Image url="/com/foodo/images/icons/facebook.png" requestedHeight="40" requestedWidth="40"
+                       preserveRatio="true" smooth="true"/>
+
+            </ImageView>
+
+        </graphic>
+
+    </JFXButton>
+
+    <Separator orientation="HORIZONTAL"/>
+
+    <Label fx:id="orEmailPhrase" text="Or use your email address" alignment="CENTER"/>
+
+    <VBox fx:id="emailFieldBackground" alignment="CENTER" maxWidth="312" prefHeight="52" spacing="10">
+
+        <HBox alignment="CENTER" spacing="3">
+
+            <JFXTextField fx:id="emailField" promptText="Your email address" labelFloat="true"
+                          HBox.hgrow="ALWAYS" onAction="#loginAction"/>
+
+            <JFXPasswordField fx:id="passwordField" promptText="emailAddress" labelFloat="false"
+                              HBox.hgrow="ALWAYS" onAction="#loginAction" managed="false" visible="false"/>
+
+        </HBox>
+
+        <AnchorPane fx:id="emailValidatorContainer" visible="false" managed="false">
+
+            <Label fx:id="emailValidatorLabel" text="Invalid" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="0"
+                   AnchorPane.topAnchor="0"/>
+
+            <ImageView AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0">
+
+                <Image url="/com/foodo/images/icons/warning_red.png" requestedWidth="15" requestedHeight="15"
+                       smooth="true" preserveRatio="true"/>
+
+            </ImageView>
+
+        </AnchorPane>
+
+    </VBox>
+
+    <AnchorPane maxWidth="330">
+
+        <JFXButton fx:id="newUserButton" text="New account" prefWidth="120" AnchorPane.leftAnchor="0"
+                   AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" onAction="#newUserAction">
+            <userData>
+                <Integer fx:value="1"/>
+            </userData>
+        </JFXButton>
+        <JFXButton fx:id="loginButton" text="Login" prefWidth="180" AnchorPane.rightAnchor="11" AnchorPane.topAnchor="0"
+                   AnchorPane.bottomAnchor="0" onAction="#loginAction">
+            <userData>
+                <Integer fx:value="1"/>
+            </userData>
+        </JFXButton>
+
+    </AnchorPane>
+
+</VBox>

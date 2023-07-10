@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.foodo.mvc.MyAddressController" spacing="15" alignment="CENTER">
+
+    <stylesheets>
+
+        <URL value="@/com/foodo/styles/myAddress.css"/>
+
+    </stylesheets>
+
+    <TextField fx:id="textField" HBox.hgrow="ALWAYS"/>
+
+    <HBox alignment="CENTER">
+
+        <JFXButton fx:id="editButton">
+
+            <graphic>
+
+                <ImageView fx:id="editIcon">
+
+                    <Image url="/com/foodo/images/icons/edit.png" preserveRatio="true" smooth="true" requestedHeight="15" requestedWidth="15"/>
+
+                </ImageView>
+
+            </graphic>
+
+        </JFXButton>
+
+        <JFXButton fx:id="removeButton">
+
+            <graphic>
+
+                <ImageView fx:id="removeIcon">
+
+                    <Image url="/com/foodo/images/icons/tick.png" preserveRatio="true" smooth="true" requestedWidth="15" requestedHeight="15"/>
+
+                </ImageView>
+
+            </graphic>
+
+        </JFXButton>
+
+    </HBox>
+
+</HBox>

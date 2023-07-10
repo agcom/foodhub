@@ -1,0 +1,8 @@
+.root {
+
+    -fx-background-image: url('/com/foodo/images/backgrounds/bread_burger_on_wooden_table.jpg');
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    -fx-background-size: 540 810;
+
+}

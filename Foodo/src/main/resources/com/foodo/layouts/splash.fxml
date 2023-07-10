@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<!--Screen size ration = 2:3-->
+<StackPane fx:id="splashRoot" prefHeight="810" prefWidth="540" xmlns="http://javafx.com/javafx/8.0.172-ea"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.foodo.mvc.SplashController">
+
+    <stylesheets>
+
+        <URL value="@/com/foodo/styles/splash.css"/>
+        <URL value="@/com/foodo/styles/global.css"/>
+        <URL value="@/com/foodo/styles/defaultBackground.css"/>
+
+    </stylesheets>
+
+
+    <VBox alignment="CENTER" spacing="15">
+
+        <StackPane fx:id="splashAnimationBackground" maxWidth="150" prefHeight="150"
+                   styleClass="fade-background">
+
+            <ImageView fx:id="splashAnimation" fitHeight="100" fitWidth="100" preserveRatio="true" smooth="true">
+
+                <Image url="/com/foodo/animations/food_loading.gif"/>
+
+            </ImageView>
+
+        </StackPane>
+
+        <ProgressBar fx:id="loadingBar" prefWidth="180" progress="0" prefHeight="15"/>
+
+        <Label fx:id="loadingDetailsLabel" text="loadingDetailsLabel" alignment="CENTER"/>
+
+    </VBox>
+
+</StackPane>

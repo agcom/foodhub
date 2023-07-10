@@ -1,0 +1,35 @@
+.jfx-text-field, .jfx-password-field {
+
+    -fx-font-size: 14;
+
+}
+
+#backButton, #doneButton {
+
+    -jfx-button-type: FLAT;
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-alignment: center;
+    -fx-pref-height: 60;
+
+}
+
+#backButton {
+
+    -fx-background-color: #d91e18;
+
+}
+
+#doneButton {
+
+    -fx-background-color: #FF9800;
+}
+
+#errorLabel {
+
+    -fx-text-fill: #d91e18;
+    -fx-font-size: 14;
+    -fx-alignment: center;
+    -fx-padding: 15 15 0 15;
+
+}

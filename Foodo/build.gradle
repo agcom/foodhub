@@ -1,0 +1,21 @@
+plugins {
+    id 'application'
+}
+
+group 'com.foodo'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.9
+mainClassName = 'com.foodo.Main'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'com.jfoenix:jfoenix:9.0.8'
+    implementation 'org.json:json:20180813'
+    implementation 'org.xerial:sqlite-jdbc:3.27.2.1'
+    implementation 'commons-validator:commons-validator:1.6'
+}

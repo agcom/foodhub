@@ -1,0 +1,26 @@
+#splashAnimationBackground {
+
+    -fx-background-radius: 75;
+
+}
+
+#loadingBar .bar {
+
+    -fx-accent:#FF9800;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+
+}
+
+#loadingDetailsLabel {
+
+    -fx-text-fill: white;
+    -fx-font-family: Monospaced;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-font-style: italic;
+    -fx-background-color: #00000077;
+    -fx-background-insets: -4 -4 -6 -6;
+    -fx-background-radius: 7;
+
+}
