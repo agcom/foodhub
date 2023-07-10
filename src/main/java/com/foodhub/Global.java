@@ -177,10 +177,10 @@ public class Global {
 				for (int i = 0; i < order.getItems().size(); i++) {
 					
 					sb.append("INSERT INTO ").append(ORDER_ITEMS.T.NAME).append(" (").append(ORDER_ITEMS.ORDER_ID.NAME).append(", ").append(ORDER_ITEMS.FOOD_ID.NAME).append(", ").append(ORDER_ITEMS.COUNT.NAME).append(") VALUES (").append(orderId).append(", ").append(order.getItems().get(i).getFood().getId()).append(", ").append(order.getItems().get(i).getCount()).append("); ");
+					DB.execute(sb.toString());
+					sb.delete(0, sb.length());
 					
 				}
-				
-				DB.execute(sb.toString());
 				
 			}
 			
