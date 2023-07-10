@@ -1,8 +1,6 @@
 package com.foodhub.controllers;
 
 import com.foodhub.Global;
-import com.foodhub.models.Address;
-import com.foodhub.models.Order;
 import com.foodhub.models.Restaurant;
 import com.foodhub.views.FoodCard;
 import com.foodhub.views.NodeSwitcher;
@@ -10,20 +8,15 @@ import com.jfoenix.controls.JFXDialog;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 
-import javax.naming.Binding;
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -43,9 +36,12 @@ public class CartController implements Initializable {
 
     }
 
-    @FXML private NodeSwitcher switcher;
-    @FXML private TilePane foodsPane;
-    @FXML private StackPane dialogSupport;
+    @FXML
+    private NodeSwitcher switcher;
+    @FXML
+    private TilePane foodsPane;
+    @FXML
+    private StackPane dialogSupport;
     private ObservableList<Restaurant.Food> foods = FXCollections.observableArrayList(new LinkedList<>());
     private FinalizeOrderDialogController finalizeController;
     private JFXDialog finalizeDialog;
@@ -71,9 +67,10 @@ public class CartController implements Initializable {
 
             Platform.runLater(() -> {
 
-                if(foodsPane.getChildren().size() > 1) foodsPane.getChildren().remove(0, foodsPane.getChildren().size() - 1);
+                if (foodsPane.getChildren().size() > 1)
+                    foodsPane.getChildren().remove(0, foodsPane.getChildren().size() - 1);
 
-                if(cards.length != 0) {
+                if (cards.length != 0) {
 
                     foodsPane.getChildren().addAll(foodsPane.getChildren().size() - 1, Arrays.asList(cards));
 
@@ -87,10 +84,10 @@ public class CartController implements Initializable {
 
     public void finalizeOrder() {
 
-        if(ProfileController.instance().getUser() == null) ProfileController.instance().loadLoginPage();
+        if (ProfileController.instance().getUser() == null) ProfileController.instance().loadLoginPage();
         else {
 
-            if(finalizeDialog == null) {
+            if (finalizeDialog == null) {
 
                 Global.daemonExecutor.submit(() -> {
 
@@ -125,15 +122,15 @@ public class CartController implements Initializable {
 
     public void closeFinalizeDialog() {
 
-        if(finalizeDialog != null) finalizeDialog.close();
+        if (finalizeDialog != null) finalizeDialog.close();
 
     }
 
     public void clear() {
-
-        foods.clear();
-        foodsPane.getChildren().clear();
-
+        final int foodsSize = foods.size();
+        for (int i = 0; i < foodsSize; i++) {
+            foods.stream().findAny().get().setQuantity(0);
+        }
     }
 
 }
