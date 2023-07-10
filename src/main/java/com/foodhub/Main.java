@@ -15,7 +15,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		primaryStage.setScene(new Scene(FXMLLoader.load(Global.instance().url("layouts/splash.fxml"))));
+		primaryStage.setScene(new Scene(FXMLLoader.load(Global.instance().url("layouts/splash.fxml")), 1200, 800));
 		primaryStage.setTitle("Food Hub");
 		primaryStage.getIcons().add(new Image(Global.instance().url("images/icons/app.png").openStream(), 0, 0, true, true));
 		primaryStage.show();
