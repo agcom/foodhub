@@ -35,7 +35,7 @@ public class OrderTreeItemView extends HBox implements Initializable {
 
     private void loadFxml() {
 
-        FXMLLoader loader = new FXMLLoader(Global.instance().url("layouts/OrderTreeItemView.fxml"));
+        FXMLLoader loader = new FXMLLoader(Global.instance().url("layouts/orderTreeItemView.fxml"));
         loader.setRoot(this);
         loader.setController(this);
 
