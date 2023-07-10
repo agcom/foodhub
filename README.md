@@ -1,3 +1,5 @@
+:warning: Not maintained, BUT, feel free to fork it. :warning:
+
 # FoodHub
 
 A [SnappFood](https://snappfood.ir/about) (or [UberEats](https://about.ubereats.com/)) clone in JavaFX; see [screenshots](#screenshots) at the end of this document.
