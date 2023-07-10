@@ -10,7 +10,6 @@ import javafx.scene.image.PixelReader;
 import javafx.scene.paint.Color;
 
 import java.nio.file.Files;
-import java.nio.file.LinkOption;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -30,6 +29,7 @@ public class Utils {
 
     /**
      * daemon thread factory
+     *
      * @param runnable
      * @return a daemon thread
      */
@@ -43,12 +43,13 @@ public class Utils {
 
     /**
      * kills the node by managed = false and visible = false
-     * @param node to kill
+     *
+     * @param node   to kill
      * @param deploy kill or redo kill
      */
     public static void setDeploy(Node node, boolean deploy) {
 
-        if(deploy) {
+        if (deploy) {
 
             node.setVisible(false);
             node.setManaged(false);
@@ -64,6 +65,7 @@ public class Utils {
 
     /**
      * average color of an image by turning it into a 1 pixel image
+     *
      * @param image
      * @return color of the one pixel
      */
@@ -78,6 +80,7 @@ public class Utils {
     /**
      * average color of an image
      * calculates average of all pixels color
+     *
      * @param image
      * @return actual average color
      */
@@ -104,7 +107,7 @@ public class Utils {
 
         }
 
-        return Color.color(redBucket/pixelCount, greenBucket/pixelCount, blueBucket/pixelCount, alphaBucket/pixelCount);
+        return Color.color(redBucket / pixelCount, greenBucket / pixelCount, blueBucket / pixelCount, alphaBucket / pixelCount);
 
     }
 
@@ -134,11 +137,12 @@ public class Utils {
 
         public static <T> List<T> select(Function<Query.Row, T> rowFactory, ColumnValue... specifiers) {
 
-            if(specifiers.length == 0) throw new UnsupportedOperationException("No specifiers chosen");
+            if (specifiers.length == 0) throw new UnsupportedOperationException("No specifiers chosen");
 
             Database.DatabaseModel.Table table = specifiers[0].column.getTable();
 
-            if(!Arrays.stream(specifiers).allMatch(columnValue -> columnValue.column.getTable() == table)) throw new IllegalArgumentException("columns specifiers from different tables");
+            if (!Arrays.stream(specifiers).allMatch(columnValue -> columnValue.column.getTable() == table))
+                throw new IllegalArgumentException("columns specifiers from different tables");
 
             StringBuilder sb = new StringBuilder();
 
@@ -148,10 +152,10 @@ public class Utils {
 
                 sb.append(specifiers[i].column.NAME);
 
-                if(specifiers[i].value == null) sb.append(" IS NULL");
+                if (specifiers[i].value == null) sb.append(" IS NULL");
                 else sb.append(" = '").append(specifiers[i].value).append("'");
 
-                if(i != specifiers.length - 1) sb.append(" AND ");
+                if (i != specifiers.length - 1) sb.append(" AND ");
 
             }
 
@@ -179,22 +183,31 @@ public class Utils {
                     statement.execute();
 
                 } catch (SQLException e) {
-
-                    e.printStackTrace();
-
+                    // NOP
                 }
 
             }
 
         }
 
+        public static void ensureTableExists(Database.DatabaseModel model, String tableSql) {
+            try (Connection connection = DriverManager.getConnection("jdbc:sqlite:" + model.PATH);
+                 PreparedStatement statement = connection.prepareStatement(tableSql)) {
+                statement.execute();
+            } catch (SQLException e) {
+                // NOP
+            }
+
+        }
+
         public static void replace(ColumnValue... data) {
 
-            if(data == null || data.length == 0) return;
+            if (data == null || data.length == 0) return;
 
             Database.DatabaseModel.Table table = data[0].column.getTable();
 
-            if(!Arrays.stream(data).skip(1).allMatch(cv -> cv.column.getTable().equals(table))) throw new IllegalArgumentException("Columns from different tables");
+            if (!Arrays.stream(data).skip(1).allMatch(cv -> cv.column.getTable().equals(table)))
+                throw new IllegalArgumentException("Columns from different tables");
 
             StringBuilder sb = new StringBuilder("REPLACE INTO ");
             sb.append(table.NAME).append("(");
@@ -203,7 +216,7 @@ public class Utils {
 
                 sb.append(data[i].column.NAME);
 
-                if(i != data.length - 1) sb.append(", ");
+                if (i != data.length - 1) sb.append(", ");
 
             }
 
@@ -213,7 +226,7 @@ public class Utils {
 
                 sb.append("'").append(data[i].value).append("'");
 
-                if(i != data.length - 1) sb.append(", ");
+                if (i != data.length - 1) sb.append(", ");
 
             }
 
@@ -253,7 +266,7 @@ public class Utils {
 
         int depth = 0;
 
-        while((item = item.getParent()) != null) {
+        while ((item = item.getParent()) != null) {
 
             depth++;
 

@@ -53,6 +53,41 @@ public class Global {
             DB = new Database.DatabaseModel("foodhub.db", dbPath.toAbsolutePath().toString()).database();
         }
 
+        static {
+            List.of(
+                    """
+                            CREATE TABLE [orderItems](
+                              [orderId] INTGER NOT NULL,
+                              [foodId] INTEGER NOT NULL,
+                              [count] INTEGER NOT NULL)""", """
+                            CREATE TABLE [foods](
+                              [id] INTEGER PRIMARY KEY,
+                              [restaurantId] INTEGER NOT NULL,
+                              [name] VARCHAR NOT NULL,
+                              [type] VARCHAR NOT NULL,
+                              [price] FLOAT NOT NULL,
+                              [imageUrl] VARCHAR)""", """
+                            CREATE TABLE [restaurants](
+                               [id] INTEGER PRIMARY KEY,
+                               [name] VARCHAR NOT NULL,
+                               [address] VARCHAR NOT NULL,
+                               [logoUrl] VARCHAR,
+                               [imageUrl] VARCHAR,
+                               [deliveryTime] TIME,
+                               [openHours] VARCHAR)""", """
+                            CREATE TABLE [orders](
+                              [id] INTEGER PRIMARY KEY,
+                              [email] VARCHAR NOT NULL,
+                              [date] TIMESTAMP NOT NULL,
+                              [deliveryAddress] VARCHAR NOT NULL)""", """
+                            CREATE TABLE [votes](
+                              [email] VARCHAR NOT NULL,
+                              [restaurantId] INTEGER NOT NULL,
+                              [foodId] INTEGER,
+                              [rating] TINYINT NOT NULL)"""
+            ).forEach(tableSql -> Utils.DatabaseHelper.ensureTableExists(DB.model(), tableSql));
+        }
+
         public static final class FOODS {
 
             public static final Database.DatabaseModel.Table T = DB.model().new Table("foods");
