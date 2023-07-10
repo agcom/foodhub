@@ -10,16 +10,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MyAddressController implements Initializable {
-
-    @FXML private TextField textField;
-    @FXML private JFXButton editButton, removeButton;
-    @FXML private ImageView editIcon, removeIcon;
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-        textField.setText(resources.getString("text"));
-
-    }
-
+	
+	@FXML
+	private TextField textField;
+	@FXML
+	private JFXButton editButton, removeButton;
+	@FXML
+	private ImageView editIcon, removeIcon;
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+		textField.setText(resources.getString("text"));
+		
+	}
+	
 }
