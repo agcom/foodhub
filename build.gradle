@@ -9,7 +9,7 @@ application {
 }
 
 group = 'com.foodhub'
-version = '1.0-SNAPSHOT'
+version = '0.1.0'
 
 sourceCompatibility = 17
 targetCompatibility = 17
