@@ -1,6 +1,5 @@
 plugins {
     id 'application'
-    id "org.sonarqube" version "2.7.1"
 }
 
 mainClassName = "com.foodhub.Main"
@@ -15,8 +14,6 @@ repositories {
 }
 
 dependencies {
-
-    testCompile group: 'junit', name: 'junit', version: '4.12'
     compile 'com.jfoenix:jfoenix:9.0.8'
     implementation 'org.xerial:sqlite-jdbc:3.27.2.1'
     implementation 'org.json:json:20180813'
