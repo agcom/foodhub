@@ -4,9 +4,9 @@ package com.foodhub.utils;
  * expand and collapse possibilities
  */
 public interface Expandable {
-
-    void expand();
-
-    void collapse();
-
+	
+	void expand();
+	
+	void collapse();
+	
 }

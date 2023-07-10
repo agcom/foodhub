@@ -2,12 +2,9 @@
 
 <?language JavaScript?>
 
-<?import com.foodhub.views.RestaurantCard?>
-<?import com.foodhub.models.Restaurant?>
 <?import com.foodhub.views.Slider?>
-<?import java.net.URL?>
-<?import com.foodhub.utils.SingleResourceBundle?>
 <?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       prefHeight="600" prefWidth="400" fx:id="root">

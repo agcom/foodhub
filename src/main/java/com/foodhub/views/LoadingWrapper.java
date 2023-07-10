@@ -14,67 +14,67 @@ import javafx.util.Duration;
 
 @DefaultProperty("content")
 public class LoadingWrapper extends BorderPane {
-
-    private ObjectProperty<Node> content = new SimpleObjectProperty<>(this, "content");
-    private BooleanProperty loading = new SimpleBooleanProperty(this, "loading", false);
-    private FadeTransition fader = new FadeTransition(Duration.seconds(1));
-
-    public LoadingWrapper(@NamedArg(value = "content") Node content, @NamedArg(value = "min", defaultValue = "0.7") double min, @NamedArg(value = "max", defaultValue = "0.9") double max) {
-
-        super.getStyleClass().add("loading-wrapper");
-
-        setContent(content);
-        super.centerProperty().bind(this.content);
-        this.content.addListener(observable -> super.getChildren().set(0, getContent()));
-
-        fader.nodeProperty().bind(this.content);
-        fader.setCycleCount(Animation.INDEFINITE);
-        fader.setAutoReverse(true);
-        fader.setFromValue(max);
-        fader.setToValue(min);
-
-        loading.addListener((observable, oldValue, newValue) -> {
-
-            if(newValue) {
-
-                getContent().setMouseTransparent(true);
-                fader.play();
-
-            } else {
-
-                getContent().setMouseTransparent(false);
-                fader.stop();
-                getContent().setOpacity(1);
-
-            }
-
-        });
-
-    }
-
-    public void setLoading(boolean loading) {
-
-        this.loading.set(loading);
-
-    }
-
-    public Node getContent() {
-        return content.get();
-    }
-
-    public ObjectProperty<Node> contentProperty() {
-        return content;
-    }
-
-    public void setContent(Node content) {
-        this.content.set(content);
-    }
-
-    public boolean isLoading() {
-        return loading.get();
-    }
-
-    public BooleanProperty loadingProperty() {
-        return loading;
-    }
+	
+	private final ObjectProperty<Node> content = new SimpleObjectProperty<>(this, "content");
+	private final BooleanProperty loading = new SimpleBooleanProperty(this, "loading", false);
+	private final FadeTransition fader = new FadeTransition(Duration.seconds(1));
+	
+	public LoadingWrapper(@NamedArg(value = "content") Node content, @NamedArg(value = "min", defaultValue = "0.7") double min, @NamedArg(value = "max", defaultValue = "0.9") double max) {
+		
+		super.getStyleClass().add("loading-wrapper");
+		
+		setContent(content);
+		super.centerProperty().bind(this.content);
+		this.content.addListener(observable -> super.getChildren().set(0, getContent()));
+		
+		fader.nodeProperty().bind(this.content);
+		fader.setCycleCount(Animation.INDEFINITE);
+		fader.setAutoReverse(true);
+		fader.setFromValue(max);
+		fader.setToValue(min);
+		
+		loading.addListener((observable, oldValue, newValue) -> {
+			
+			if (newValue) {
+				
+				getContent().setMouseTransparent(true);
+				fader.play();
+				
+			} else {
+				
+				getContent().setMouseTransparent(false);
+				fader.stop();
+				getContent().setOpacity(1);
+				
+			}
+			
+		});
+		
+	}
+	
+	public void setLoading(boolean loading) {
+		
+		this.loading.set(loading);
+		
+	}
+	
+	public Node getContent() {
+		return content.get();
+	}
+	
+	public ObjectProperty<Node> contentProperty() {
+		return content;
+	}
+	
+	public void setContent(Node content) {
+		this.content.set(content);
+	}
+	
+	public boolean isLoading() {
+		return loading.get();
+	}
+	
+	public BooleanProperty loadingProperty() {
+		return loading;
+	}
 }

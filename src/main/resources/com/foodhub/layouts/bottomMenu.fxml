@@ -2,14 +2,12 @@
 
 <?language JavaScript?>
 
-<?import com.foodhub.views.BottomMenu?>
-<?import com.foodhub.views.BottomMenuItem?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.BorderPane?>
+<?import com.foodhub.views.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" spacing="15"
-      stylesheets="@/com/foodhub/styles/bottomMenu.css" fx:id="root" fx:controller="com.foodhub.controllers.BottomMenuController">
+      stylesheets="@/com/foodhub/styles/bottomMenu.css" fx:id="root"
+      fx:controller="com.foodhub.controllers.BottomMenuController">
 
     <fx:define>
 
@@ -20,14 +18,22 @@
         <ImageView fx:id="searchIcon" preserveRatio="true" smooth="true" fitHeight="25" fitWidth="25"/>
         <ImageView fx:id="profileIcon" preserveRatio="true" smooth="true" fitHeight="25" fitWidth="25"/>
 
-        <Image fx:id="cartRaw" url="/com/foodhub/images/icons/cartRaw.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
-        <Image fx:id="cartBold" url="/com/foodhub/images/icons/cartBold.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
-        <Image fx:id="homeRaw" url="/com/foodhub/images/icons/homeRaw.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
-        <Image fx:id="homeBold" url="/com/foodhub/images/icons/homeBold.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
-        <Image fx:id="searchRaw" url="/com/foodhub/images/icons/searchRaw.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
-        <Image fx:id="searchBold" url="/com/foodhub/images/icons/searchBold.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
-        <Image fx:id="profileRaw" url="/com/foodhub/images/icons/profileRaw.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
-        <Image fx:id="profileBold" url="/com/foodhub/images/icons/profileBold.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
+        <Image fx:id="cartRaw" url="/com/foodhub/images/icons/cartRaw.png" requestedWidth="25" requestedHeight="25"
+               smooth="true" preserveRatio="true"/>
+        <Image fx:id="cartBold" url="/com/foodhub/images/icons/cartBold.png" requestedWidth="25" requestedHeight="25"
+               smooth="true" preserveRatio="true"/>
+        <Image fx:id="homeRaw" url="/com/foodhub/images/icons/homeRaw.png" requestedWidth="25" requestedHeight="25"
+               smooth="true" preserveRatio="true"/>
+        <Image fx:id="homeBold" url="/com/foodhub/images/icons/homeBold.png" requestedWidth="25" requestedHeight="25"
+               smooth="true" preserveRatio="true"/>
+        <Image fx:id="searchRaw" url="/com/foodhub/images/icons/searchRaw.png" requestedWidth="25" requestedHeight="25"
+               smooth="true" preserveRatio="true"/>
+        <Image fx:id="searchBold" url="/com/foodhub/images/icons/searchBold.png" requestedWidth="25"
+               requestedHeight="25" smooth="true" preserveRatio="true"/>
+        <Image fx:id="profileRaw" url="/com/foodhub/images/icons/profileRaw.png" requestedWidth="25"
+               requestedHeight="25" smooth="true" preserveRatio="true"/>
+        <Image fx:id="profileBold" url="/com/foodhub/images/icons/profileBold.png" requestedWidth="25"
+               requestedHeight="25" smooth="true" preserveRatio="true"/>
 
     </fx:define>
 
@@ -37,7 +43,8 @@
 
             <ImageView fx:id="backIcon">
 
-                <Image url="/com/foodhub/images/icons/arrowLeft.png" requestedWidth="25" requestedHeight="25" smooth="true" preserveRatio="true"/>
+                <Image url="/com/foodhub/images/icons/arrowLeft.png" requestedWidth="25" requestedHeight="25"
+                       smooth="true" preserveRatio="true"/>
 
             </ImageView>
 
@@ -59,6 +66,6 @@
         searchIcon.imageProperty().bind(javafx.beans.binding.Bindings.when(search.selectedProperty()).then(searchBold).otherwise(searchRaw))
         profileIcon.imageProperty().bind(javafx.beans.binding.Bindings.when(user.selectedProperty()).then(profileBold).otherwise(profileRaw))
 
-         </fx:script>
+    </fx:script>
 
 </HBox>

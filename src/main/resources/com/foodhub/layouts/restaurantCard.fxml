@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.image.ImageView?>
-<?import java.net.URL?>
-<?import javafx.scene.control.Label?>
 <?import com.foodhub.views.RatingView?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.Group?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
 <fx:root type="VBox" xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml" alignment="CENTER">
 

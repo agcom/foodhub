@@ -33,7 +33,7 @@
     -fx-border-radius: 0;
 }
 
-.scroll-bar:vertical .increment-arrow, .scroll-bar:vertical .decrement-arrow, .scroll-bar:horizontal .increment-arrow, .scroll-bar:horizontal .decrement-arrow{
+.scroll-bar:vertical .increment-arrow, .scroll-bar:vertical .decrement-arrow, .scroll-bar:horizontal .increment-arrow, .scroll-bar:horizontal .decrement-arrow {
     -fx-shape: "";
     -fx-opacity: 0;
     -fx-background-color: transparent;

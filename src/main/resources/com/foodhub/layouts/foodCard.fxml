@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.control.Label?>
-<?import java.net.URL?>
-<?import com.foodhub.views.RatingView?>
-<?import javafx.scene.image.Image?>
-<?import java.net.URL?>
-<?import javafx.scene.control.Label?>
-<?import com.foodhub.views.RatingView?>
-<?import javafx.scene.image.Image?>
-<?import com.jfoenix.controls.JFXButton?>
-
-<?import com.foodhub.views.NodeSwitcher?>
-<?import javafx.scene.image.ImageView?>
-<?import com.sun.javafx.scene.control.FakeFocusTextField?>
-<?import javafx.scene.text.TextFlow?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.text.Text?>
-<?import com.jfoenix.controls.FakeFocusJFXTextField?>
 <?import com.foodhub.views.FakeFocus?>
+<?import com.foodhub.views.NodeSwitcher?>
+<?import com.foodhub.views.RatingView?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+<?import java.net.URL?>
 <fx:root type="VBox" xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml" alignment="CENTER_LEFT" prefWidth="300" maxWidth="300" spacing="10">
 
@@ -66,7 +57,8 @@
 
         <nodes>
 
-            <JFXButton fx:id="add" alignment="CENTER" text="Add to cart" prefWidth="Infinity" onAction="#increaseQuantity"/>
+            <JFXButton fx:id="add" alignment="CENTER" text="Add to cart" prefWidth="Infinity"
+                       onAction="#increaseQuantity"/>
 
             <HBox spacing="20" alignment="CENTER_LEFT" fx:id="quantityContainer">
 
@@ -76,7 +68,8 @@
 
                         <ImageView>
 
-                            <Image url="/com/foodhub/images/icons/minusBlack.png" requestedWidth="22" requestedHeight="22"
+                            <Image url="/com/foodhub/images/icons/minusBlack.png" requestedWidth="22"
+                                   requestedHeight="22"
                                    smooth="true" preserveRatio="true"/>
 
                         </ImageView>
@@ -93,7 +86,8 @@
 
                         <ImageView>
 
-                            <Image url="/com/foodhub/images/icons/plusBlack.png" requestedWidth="22" requestedHeight="22"
+                            <Image url="/com/foodhub/images/icons/plusBlack.png" requestedWidth="22"
+                                   requestedHeight="22"
                                    smooth="true" preserveRatio="true"/>
 
                         </ImageView>

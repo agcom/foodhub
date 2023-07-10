@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
-<?import java.net.URL?>
-<?import javafx.scene.control.ScrollPane?>
-<?import com.foodhub.views.NodeSwitcher?>
-
-<?import com.foodhub.views.RestaurantCard?>
-<?import javafx.scene.control.Button?>
 <?import com.foodhub.views.LoadingWrapper?>
+<?import com.foodhub.views.NodeSwitcher?>
+<?import com.foodhub.views.RestaurantCard?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
 <NodeSwitcher xmlns="http://javafx.com/javafx"
               xmlns:fx="http://javafx.com/fxml"
               fx:controller="com.foodhub.controllers.HomeController" startNodeIndex="0"

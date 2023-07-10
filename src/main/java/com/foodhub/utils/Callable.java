@@ -5,7 +5,7 @@ package com.foodhub.utils;
  * {@inheritDoc}
  */
 public interface Callable<V> extends java.util.concurrent.Callable<V> {
-
-    @Override
-    V call();
+	
+	@Override
+	V call();
 }

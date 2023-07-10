@@ -2,15 +2,11 @@
 
 <?language JavaScript?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import com.foodhub.views.LabeledSeparator?>
 <?import com.foodhub.views.NodeSwitcher?>
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.foodhub.views.LabeledSeparator?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Circle?>
 <NodeSwitcher xmlns="http://javafx.com/javafx"
               xmlns:fx="http://javafx.com/fxml"
@@ -45,7 +41,7 @@
                                         photoClip.centerXProperty().bind(photoClip.radiusProperty())
                                         photoClip.centerYProperty().bind(photoClip.radiusProperty())
 
-                                         </fx:script>
+                                    </fx:script>
 
                                 </clip>
 

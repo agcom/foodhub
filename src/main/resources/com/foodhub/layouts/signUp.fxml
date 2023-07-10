@@ -2,23 +2,15 @@
 
 <?language JavaScript?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import com.foodhub.views.LabeledSeparator?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.util.converter.NumberStringConverter?>
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXPasswordField?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.util.converter.LongStringConverter?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import com.foodhub.views.LoadingWrapper?>
 <?import com.foodhub.views.FakeFocus?>
+<?import com.foodhub.views.LabeledSeparator?>
+<?import com.foodhub.views.LoadingWrapper?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
 <ScrollPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.foodhub.controllers.SignUpController"
@@ -70,7 +62,7 @@
 
                                         checkIcon.setEffect(new javafx.scene.effect.ColorAdjust(0, -1, -1, 0))
 
-                                         </fx:script>
+                                    </fx:script>
 
                                 </ImageView>
 

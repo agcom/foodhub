@@ -11,19 +11,24 @@ import java.util.ResourceBundle;
 
 //TODO: include controller with reflection
 public class BottomMenuController implements Initializable {
-
-    @FXML public BorderPane back;
-    @FXML public BottomMenuItem home;
-    @FXML public BottomMenuItem cart;
-    @FXML public BottomMenuItem search;
-    @FXML public BottomMenuItem profile;
-    @FXML public BottomMenu menu;
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-
-
-    }
-
+	
+	@FXML
+	public BorderPane back;
+	@FXML
+	public BottomMenuItem home;
+	@FXML
+	public BottomMenuItem cart;
+	@FXML
+	public BottomMenuItem search;
+	@FXML
+	public BottomMenuItem profile;
+	@FXML
+	public BottomMenu menu;
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+	
+	
+	}
+	
 }

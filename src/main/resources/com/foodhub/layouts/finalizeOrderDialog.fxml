@@ -2,18 +2,14 @@
 
 <?language JavaScript?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import com.jfoenix.controls.JFXTextField?>
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
 <?import com.foodhub.views.LabeledSeparator?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.foodhub.controllers.FinalizeOrderDialogController"
