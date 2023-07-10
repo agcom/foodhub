@@ -1,3 +1,13 @@
 # Foodo
 
-FoodHub's abandoned predecessor; with completely different implemented feature set; originally made in 2019.
+FoodHub's abandoned predecessor; with completely **different implemented feature set**; see screenshots below; originally made in 2019.
+
+## Screenshots
+
+![Splash page](./screenshots/Splash.png)
+
+![Home page](./screenshots/Home%20search.png)
+
+![Login page](./screenshots/Login.png)
+
+![Sign-up page](./screenshots/Sign-up.png)
