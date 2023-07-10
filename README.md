@@ -1,6 +1,6 @@
 # FoodHub
 
-A [SnappFood](https://snappfood.ir/about) (or [UberEats](https://about.ubereats.com/)) clone in JavaFX.
+A [SnappFood](https://snappfood.ir/about) (or [UberEats](https://about.ubereats.com/)) clone in JavaFX; see [screenshots](#screenshots) at the end of this document.
 
 This application was my final's project for the **advanced programming** university course, originally made in **2019**.
 
@@ -16,6 +16,26 @@ This application was my final's project for the **advanced programming** univers
 ./gradlew.bat run
 ```
 
+## Issues
+
+This project is not empty of issues! I just never put/had the time to list them.
+
 ## Disclaimer
 
 The example databases' data and the images are not mine; I found them on the Internet using Google search engine.
+
+## Screenshots
+
+![Splash page](./screenshots/Splash.png)
+
+![Home page](./screenshots/Home.png)
+
+![Restaurant page](./screenshots/Restaurant.png)
+
+![Cart page](./screenshots/Cart.png)
+
+![Login page](./screenshots/Login.png)
+
+![Sign-up page](./screenshots/Sign-up.png)
+
+![Profile page](./screenshots/Profile.png)
