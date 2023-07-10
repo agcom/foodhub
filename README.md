@@ -6,8 +6,6 @@ This application was my final's project for the **advanced programming** univers
 
 ## Simple build & run
 
-Make sure you have **Oracle JDK 10** installed and configured; then issue the following command:
-
 ```shell
 # On a Linux OS
 ./gradlew run
@@ -17,8 +15,6 @@ Make sure you have **Oracle JDK 10** installed and configured; then issue the fo
 # Or if you are on Windows:
 ./gradlew.bat run
 ```
-
-> It might be tricky getting it working, as it is now considered a legacy software.
 
 ## Disclaimer
 
