@@ -41,3 +41,7 @@ The example databases' data and the images are not mine; I found them on the Int
 ![Sign-up page](./screenshots/Sign-up.png)
 
 ![Profile page](./screenshots/Profile.png)
+
+![A page of initial design brain-storm](./screenshots/Initial%20design%20brain-storm.png)
+
+> See the full initial design brain-storm [here](./Initial%20design%20brain-storm.pdf).
