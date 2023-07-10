@@ -16,7 +16,7 @@ public class Utils {
     public static class Logger {
 
         private static FileWriter logger;
-        public final static String LOG_PATH = "C:/Users/Agcom/Documents/IdeaProjects/Foodo/foodoAppLogs.log";
+        public final static String LOG_PATH = "./foodoAppLogs.log";
         static {
 
             try {

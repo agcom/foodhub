@@ -47,7 +47,7 @@ public class GlobalData {
      */
     public static final class Foodo {
 
-        public static final DbModel M = new DbModel("foodo.db", "C:/Users/Agcom/Documents/IdeaProjects/Foodo/foodo.db");
+        public static final DbModel M = new DbModel("foodo.db", "./foodo.db");
         public static final Database DB = new Database(false, M);
 
         public static final class COVERED_ADDRESSES {
