@@ -1,27 +1,19 @@
 package com.foodhub;
 
-import com.foodhub.controllers.CartController;
-import com.foodhub.exceptions.UnableToLoadException;
 import com.foodhub.models.*;
 import com.foodhub.utils.Utils;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.concurrent.Service;
-import org.apache.commons.validator.routines.EmailValidator;
-import org.apache.commons.validator.routines.UrlValidator;
+import javafx.application.Application;
 import org.json.JSONObject;
 
-import javax.lang.model.type.NullType;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Timestamp;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.sql.Types;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
@@ -42,7 +34,24 @@ public class Global {
      */
     public static final class FoodHub {
 
-        public static final Database DB = new Database.DatabaseModel("foodhub.db", "C:/Users/Agcom/Documents/IdeaProjects/FoodHub/src/main/resources/com/foodhub/databases/foodhub.db").database();
+        public static final Database DB;
+
+        static {
+            final var dbPathStr = Global.instance().appInstance.getParameters().getNamed().get("db");
+            final Path dbPath;
+            if (dbPathStr == null) {
+                dbPath = Path.of("data", "foodhub.db");
+                try {
+                    Files.createDirectories(dbPath.getParent());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                dbPath = Path.of(dbPathStr);
+            }
+
+            DB = new Database.DatabaseModel("foodhub.db", dbPath.toAbsolutePath().toString()).database();
+        }
 
         public static final class FOODS {
 
@@ -200,7 +209,24 @@ public class Global {
 
     public static final class USER {
 
-        public static final Database DB = new Database.DatabaseModel("user.db", "C:/Users/Agcom/Documents/IdeaProjects/FoodHub/src/main/resources/com/foodhub/databases/user.db").database();
+        public static final Database DB;
+
+        static {
+            final var dbPathStr = Global.instance().appInstance.getParameters().getNamed().get("userDb");
+            final Path dbPath;
+            if (dbPathStr == null) {
+                dbPath = Path.of("data", "user.db");
+                try {
+                    Files.createDirectories(dbPath.getParent());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                dbPath = Path.of(dbPathStr);
+            }
+
+            DB = new Database.DatabaseModel("user.db", dbPath.toAbsolutePath().toString()).database();
+        }
 
         static {
 
@@ -225,7 +251,8 @@ public class Global {
 
                     savedEmail = Utils.DatabaseHelper.select(row -> row.getString(VALUE), new ColumnValue(KEY, "savedEmail")).get(0);
 
-                } catch (Exception ignored) {}
+                } catch (Exception ignored) {
+                }
 
                 return savedEmail;
 
@@ -397,6 +424,8 @@ public class Global {
     //////////////////////////////////////////////////////////////////////////////////////
 
     private static final Global globalCache = new Global();
+
+    public Application appInstance = null;
 
     private Global() {
     }
