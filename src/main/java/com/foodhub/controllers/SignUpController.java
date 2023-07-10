@@ -89,7 +89,7 @@ public class SignUpController implements Initializable {
 
                 try {
 
-                    Global.BPServer.BPServerResponse response = Global.BPServer.instance().signUpUser(new UserData(firstName.getText(), lastName.getText(), email.getText(), phone.getText(), password.getText()));
+                    Global.BPServerMock.Response response = Global.BPServerMock.instance().signUpUser(new UserData(firstName.getText(), lastName.getText(), email.getText(), phone.getText(), password.getText()));
 
                     if(response.getStatus()) {
 

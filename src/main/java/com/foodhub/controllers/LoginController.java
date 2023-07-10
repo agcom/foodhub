@@ -86,7 +86,7 @@ public class LoginController implements Initializable {
 
                 try {
 
-                    Global.BPServer.BPServerResponse response = Global.BPServer.instance().loginUser(emailField.getText(), passwordField.getText());
+                    Global.BPServerMock.Response response = Global.BPServerMock.instance().loginUser(emailField.getText(), passwordField.getText());
 
                     if(response.getStatus()) {
 
