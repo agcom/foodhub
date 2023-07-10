@@ -114,7 +114,7 @@ public class LoginController implements Initializable {
 
                     try {
 
-                        GlobalData.BPServer.BPServerResponse response = GlobalData.BPServer.getServer().loginUser(user);
+                        GlobalData.BPServerMock.Response response = GlobalData.BPServerMock.getServer().loginUser(user);
 
                         if (response.getStatus()) {
 

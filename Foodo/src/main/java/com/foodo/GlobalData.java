@@ -1,12 +1,7 @@
 package com.foodo;
 
-import com.foodo.exceptions.UnloadedResourcesException;
 import com.foodo.models.*;
 import com.foodo.utils.Utils;
-import javafx.concurrent.ScheduledService;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
-import javafx.util.Duration;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -16,10 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Types;
 import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.*;
 
 public class GlobalData {
 
@@ -73,101 +65,54 @@ public class GlobalData {
 
     }
 
-    public static class BPServer {
+    public static class BPServerMock {
 
-        private static BPServer server = new BPServer();
+        private static BPServerMock server = new BPServerMock();
 
-        public static BPServer getServer() {
+        public static BPServerMock getServer() {
 
             return server;
         }
 
-        private BPServer() {
+        private BPServerMock() {
         }
-
-        private final String BASE_URL = "http://188.40.255.172:2001/api/user_api";
-        private final String LOGIN_FUNCTION = "login_user";
-        private final String SIGN_UP_FUNCTION = "signup_user";
-
-        public BPServerResponse singUpUser(User user) throws IOException {
-
-            HttpURLConnection connection = getConnection(SIGN_UP_FUNCTION);
-
-            connection.setRequestMethod("POST");
-            connection.setDoOutput(true);
-            connection.setDoInput(true);
-            connection.addRequestProperty("Content-type", "Application/json");
-
-            OutputStream output = connection.getOutputStream();
-
-            output.write(getUserSignUpFieldsAsJson(user).toString().getBytes());
-            output.close();
-
-            Scanner inputScanner = new Scanner(connection.getInputStream());
-            BPServerResponse response = new BPServerResponse(new JSONObject(inputScanner.useDelimiter("\\A").next()));
-            inputScanner.close();
-
-            return response;
+        
+        private final Map<String, User> users = new ConcurrentHashMap<>();
+        
+        public Response signUpUser(User user) throws IOException {
+            try {
+                Thread.sleep((long) (Math.random() * 7000));
+            } catch (InterruptedException e) {
+                return new Response("Something went wrong with the network delay simulation.");
+            }
+            
+            if (users.putIfAbsent(user.getEmail(), user) != null) {
+                return new Response("A user with the given email already exists.");
+            } else {
+                return new Response(user);
+            }
 
         }
 
-        public BPServerResponse loginUser(User user) throws IOException {
+        public Response loginUser(User user) throws IOException {
 
             return loginUser(user.getEmail(), user.getPassword());
 
         }
 
-        public BPServerResponse loginUser(String username, String password) throws IOException {
-
-            HttpURLConnection connection = getConnection(LOGIN_FUNCTION);
-
-            connection.setRequestMethod("POST");
-            connection.setDoOutput(true );
-            connection.setDoInput(true);
-            connection.addRequestProperty("Content-Type", "Application/json");
-
-            OutputStream output = connection.getOutputStream();
-
-            output.write(gerUserLoginFieldsAsJson(new User(username, password)).toString().getBytes());
-            output.close();
-
-            Scanner inputScanner = new Scanner(connection.getInputStream());
-            BPServerResponse response = new BPServerResponse(new JSONObject(inputScanner.useDelimiter("\\A").next()));
-            inputScanner.close();
-
-            return response;
-
-
-        }
-
-        private HttpURLConnection getConnection(String function) throws IOException {
-
-            URL url = null;
-
+        public Response loginUser(String username, String password) throws IOException {
             try {
-
-                switch (function) {
-
-                    case SIGN_UP_FUNCTION:
-                        url = new URL(BASE_URL + "/" + SIGN_UP_FUNCTION);
-                        break;
-
-                    case LOGIN_FUNCTION:
-                        url = new URL(BASE_URL + "/" + LOGIN_FUNCTION);
-                        break;
-
-                }
-
-            } catch (MalformedURLException e) {
-
-                Utils.Logger.log(e);
-
+                Thread.sleep((long) (Math.random() * 7000));
+            } catch (InterruptedException e) {
+                return new Response("Something went wrong with the network delay simulation.");
             }
-
-            return (HttpURLConnection) url.openConnection();
-
+            
+            final var user = users.get(username);
+            if (user != null && user.getPassword().equals(password))
+                return new Response(user);
+            else return new Response("Wrong username or password.");
         }
-
+        
         private JSONObject getUserSignUpFieldsAsJson(User user) {
 
             JSONObject jObj = new JSONObject();
@@ -193,19 +138,22 @@ public class GlobalData {
 
         }
 
-        public static class BPServerResponse {
+        public static class Response {
 
             private final boolean status;
             private String error;
             private User userData;
-
-            private BPServerResponse(JSONObject response) {
-
-                this.status = response.getBoolean("status");
-
-                if (!status) this.error = response.getString("error");
-                else this.userData = new User(response.getJSONObject("UserData"));
-
+            
+            private Response(String error) {
+                status = false;
+                this.error = error;
+            }
+            
+            private Response(User userData) {
+                
+                this.status = true;
+                this.userData = userData;
+                
             }
 
             public boolean getStatus() {

@@ -7,36 +7,22 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.validation.IntegerValidator;
-import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.RegexValidator;
 import com.jfoenix.validation.RequiredFieldValidator;
 import com.jfoenix.validation.base.ValidatorBase;
-import javafx.animation.FadeTransition;
 import javafx.application.Platform;
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.StringProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
-import javafx.util.Duration;
-import jdk.jshell.execution.Util;
 import org.apache.commons.validator.routines.EmailValidator;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Base64;
 import java.util.ResourceBundle;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 public class SignUpController implements Initializable {
@@ -141,7 +127,7 @@ public class SignUpController implements Initializable {
 
                 try {
 
-                    GlobalData.BPServer.BPServerResponse response = GlobalData.BPServer.getServer().singUpUser(user);
+                    GlobalData.BPServerMock.Response response = GlobalData.BPServerMock.getServer().signUpUser(user);
 
                     if (response.getStatus()) {
 
